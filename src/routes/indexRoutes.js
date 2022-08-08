@@ -34,7 +34,6 @@ function getRandom(cant) {
 }
 
 
-
 router.get("/info", (req, res) => {
 
   console.log(`Ruta ejecutada /info.`)
@@ -47,10 +46,6 @@ router.get("/infozip",compression(), (req, res) => {
   res.json(info);
 });
 
-router.get('*',(req,res)=>{
-  console.log(`La url:${req.url} no existe`)
-  res.send(`La url:${req.url} no existe`)
-})
 router.get("/api/randoms", (req, res) => {
   //💡http://localhost:3000/api/randoms?cant=1000
   const cant = req.query.cant || 100000000;
@@ -59,5 +54,11 @@ router.get("/api/randoms", (req, res) => {
 
   res.send(msg);
 });
+
+router.get('*',(req,res)=>{
+  console.log(`La url:${req.url} no existe`)
+  res.send(`La url:${req.url} no existe`)
+})
+
 
 export default router;
